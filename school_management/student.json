@@ -1,0 +1,29 @@
+[
+    {
+        "id": 0,
+        "fname": "Mansa",
+        "lname": "Sharma",
+        "email": "Mansa_Sharma@schoolname.com",
+        "rollnum": "1004",
+        "contact": "0123456789",
+        "class": "FIVE"
+    },
+    {
+        "id": 1,
+        "fname": "Suneel",
+        "lname": "Sharma",
+        "email": "Suneel_Sharma@schoolname.com",
+        "rollnum": "1001",
+        "contact": "0123456789",
+        "class": "FIVE"
+    },
+    {
+        "id": 2,
+        "fname": "Anubhav",
+        "lname": "Mishra",
+        "email": "Anubhav_Mishra@schoolname.com",
+        "rollnum": "1002",
+        "contact": "0123456789",
+        "class": "FIVE"
+    }
+]
