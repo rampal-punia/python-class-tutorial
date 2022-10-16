@@ -4,8 +4,7 @@ __pycache__/
 *$py.class
 
 # local-files
-car_tutorial.md
-classes_help.md
+local_folder/
 
 # C extensions
 *.so
