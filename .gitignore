@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# local-files
+car_tutorial.md
+classes_help.md
+
 # C extensions
 *.so
 
