@@ -1,11 +1,11 @@
 import json
 
-from person import Person
+from member import Member
 from choices import Subject
 from helper import LoadTeacherData
 
 
-class Teacher(Person):
+class Teacher(Member):
     school_name = 'Happy School'
 
     def __init__(self, fname, lname, contact, empid, subject):

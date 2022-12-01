@@ -1,14 +1,17 @@
-from person import Person
+import datetime
+
+from member import Member
 from choices import ClassName
 from helper import LoadStudentData, write_file
 
 
-class Student(Person):
+class Student(Member):
     school_name = 'Happy School'
 
     def __init__(self, fname, lname, contact, rollnum, classname):
         super().__init__(fname, lname, contact)
-        self.id = 0
+        self.admission_num = 1000
+        self.admission_date = datetime.date.today()
         self.rollnum = rollnum
         self.email = f"{self.fname}_{self.lname}@{Student.school_name.replace(' ', '')}.com"
         self.filename, self.data = LoadStudentData().load_data()
@@ -21,15 +24,15 @@ class Student(Person):
             print("[DEFAULT] Setting classname ONE.")
             self.classname = ClassName.get_default_class()
 
-    def get_id(self):
+    def get_admission_num(self):
         if self.data == []:
-            return self.id
+            return self.admission_num
         else:
-            return self.data[-1]["id"] + 1
+            return self.data[-1]["admission_num"] + 1
 
     def student_data(self):
         student = {}
-        student["id"] = self.get_id()
+        student["admission_num"] = self.get_admission_num()
         student["fname"] = self.fname.capitalize()
         student["lname"] = self.lname.capitalize()
         student["email"] = self.email
@@ -67,31 +70,31 @@ class SaveStudent:
 
 
 class UpdateStudent:
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, admission_num):
+        self.admission_num = admission_num
         self.mode = 'w'
         self.fl, self.student_data = LoadStudentData().load_data()
 
     def get_student(self):
         for stu in self.student_data:
-            if stu["id"] == self.id:
+            if stu["admission_num"] == self.admission_num:
                 student_tbu = stu
         return student_tbu
 
     def update(self, stu):
-        self.student_data[self.id] = stu
+        self.student_data[self.admission_num] = stu
         write_file(self.fl, self.mode, self.student_data)
 
 
 class DeleteStudent:
-    def __init__(self, id):
-        self.id = id
+    def __init__(self, admission_num):
+        self.admission_num = admission_num
         self.mode = 'w'
         self.fl, self.student_data = LoadStudentData().load_data()
         self.delete()
 
     def delete(self):
-        self.student_data.pop(self.id)
+        self.student_data.pop(self.admission_num)
         write_file(self.fl, self.mode, self.student_data)
 
 

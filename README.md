@@ -1,23 +1,36 @@
 # Python OOP Tutorial
 
-## Undestanding classes in Python
+## 1. Introduction
+- definition of class
+- Naming a class
+- Syntax of Class
+- dir(), help(-__class__'),  __dict__
+- creating rectangle class
+- the init method
+- Creating an instance
+- Get attributes
+- Calling the methods of the class
 
-### Topics to be covered:
-- Initializer or constructor
-- Instance variables
-- Instance methods
-- Class variables
-- Class methods
-- Staticmethods
-- Inheritance
+## 2. Working with the Class and its Instances (With Point Class Example)
+- The Point class
+- Method to modify an attribute
+- Dunder methods
 
+## 3. Instance and Class variable
 
-### Tutorial 1 
-Creating Car class
+## 4. Instance, Static and Class methods
 
-### Tutorial 2
-Creating Point class
+## 5. Property decorator
 
-### Project
+## 6. OOPs concepts (Inheritance, Polymorphism, Encapsulation, Abstraction - IPEA)
+
+## 7. Inheritance
+- Creating an Employee Class
+- Initialize the child class attributes and methods
+- Super()
+- isinstance(), MRO()
+- Override Parent class method
+
+## 8. Project
 Student management system
 

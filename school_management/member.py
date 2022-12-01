@@ -1,4 +1,4 @@
-class Person:
+class Member:
     """A base person class to be inheritted for Teacher and Student.
     """
 
@@ -13,6 +13,7 @@ class Person:
         self.fname = fname
         self.lname = lname
         self.contact = contact
+        is_active = True
         if self.contact is not None:
             assert len(self.contact) == 10
 
