@@ -24,37 +24,39 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 ## In this tutorial:
 
-- Definition of a 'class'
+- [Definition of a 'class'](https://github.com/CodingMantras/python-class-tutorial#definition-of-class)
 
-- Reason for creating a class
+- [Reason for creating a class](https://github.com/CodingMantras/python-class-tutorial#reason-for-creating-a-class)
 
-- Naming a 'class'
+- [Naming a 'class'](https://github.com/CodingMantras/python-class-tutorial#naming-a-class)
 
-- `class` keyword and `__init__` method
+- [`class` keyword and `__init__` method](https://github.com/CodingMantras/python-class-tutorial#class-keyword-and-init-method)
 
-- What is an 'instance of a class'
+- [Instance of a class](https://github.com/CodingMantras/python-class-tutorial#instance)
 
-- Instance variables and class variables
+- [Attributes & Methods](https://github.com/CodingMantras/python-class-tutorial#attributes-and-methods)
 
-- Instance methods, class methods and static methods
+- [Instance variables and class variables](https://github.com/CodingMantras/python-class-tutorial#instance-variables-and-class-variables)
+
+- [Instance methods, class methods and static methods](https://github.com/CodingMantras/python-class-tutorial#instance-methods-class-methods-and-static-methods)
 
 - Helpful in-build methods: `dir()`, `help(__class__)`, `MRO`, `is_instance` and  `__dict__`.
 
 - Use of property decorator
 
-- OOPs concepts (Inheritance, Polymorphism, Encapsulation, Abstraction - IPEA)
+- [OOPs concepts (Inheritance, Polymorphism, Encapsulation, Abstraction - IPEA)](https://github.com/CodingMantras/python-class-tutorial#oops-concepts)
 
 ---
 
 ## Examples and Project (Tutorials Purpose):
 
-1. Point Class
+1. [Point Class](https://github.com/CodingMantras/python-class-tutorial/blob/master/examples/1_point_class.py)
 
-2. Animal Class
+2. [Animal Class](https://github.com/CodingMantras/python-class-tutorial/blob/master/examples/2_2_animal_class.py)
 
-3. Rectangle Class
+3. [Rectangle Class](https://github.com/CodingMantras/python-class-tutorial/blob/master/examples/3_2_rectangle_class.py)
 
-4. Student Management System
+4. [Student Management System](https://github.com/CodingMantras/python-class-tutorial/blob/master/school_management/main.py)
 
 ---
 
