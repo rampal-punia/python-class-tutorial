@@ -28,9 +28,9 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 - [Reason for creating a class](https://github.com/CodingMantras/python-class-tutorial#reason-for-creating-a-class)
 
-- [Naming a 'class'](https://github.com/CodingMantras/python-class-tutorial#naming-a-class)
-
 - [`class` keyword and `__init__` method](https://github.com/CodingMantras/python-class-tutorial#class-keyword-and-init-method)
+
+- [Naming a 'class'](https://github.com/CodingMantras/python-class-tutorial#naming-a-class)
 
 - [Instance of a class](https://github.com/CodingMantras/python-class-tutorial#instance)
 
@@ -80,8 +80,6 @@ To name a `class` in Python the convention is to start with capital letter like:
 ## class keyword and __init__ method
 Everything in Python is a class. like **list**, **int**, **str**, **tuple**, **functions**, **sys** etc. To create a user defined object we use **class** keyword in Python. The special method **__init__** is used to initialize an object of that class.
 
----
-
 ### An example of a `Car class`:
 Let's say, we need to create a record of cars manufactured by the Tata Motors. The data and data related to car are as mentioned below. 
 
@@ -94,7 +92,6 @@ Year = 2022
 |Nexon|Black|160| November|
 |Harrier|Black|180| December|
 |Harrier|Dark Grey|180| December|
-
 
 **A table containing details of each Car. The row of this table represents the each instance of a class and columns represents attributes associated with an instance of the Car class**. 
 
@@ -170,8 +167,6 @@ print(car.name)
 print(car.speed)
 ```
 
----
-
 ### Class variables:
 The variables associated with all the the instances of a class. They are shared by all the instances of that class.
 
@@ -231,6 +226,8 @@ print(car2.year)
 We use @classmethod decorator to tell python that it is a classmethod. By doing so, the python sends the class itself as this method's first parameter.
 
 ### Static method
+
+---
 
 ## Helpful In-build Methods:
 ### dir(): List all the data and methods associated with `instance car1` and `class Car`.
@@ -323,6 +320,8 @@ print(Animal.__dict__)
 # Output:
 {'__module__': '__main__', '__init__': <function Animal.__init__ at 0x7f295e98ef70>, '__str__': <function Animal.__str__ at 0x7f295e935040>, 'walk': <function Animal.walk at 0x7f295e9350d0>, 'jump': <function Animal.jump at 0x7f295e935160>, 'speak': <function Animal.speak at 0x7f295e9351f0>, '__dict__': <attribute '__dict__' of 'Animal' objects>, '__weakref__': <attribute '__weakref__' of 'Animal' objects>, '__doc__': None}
 ```
+
+---
 
 ## OOPs concepts:
 
