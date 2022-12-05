@@ -232,47 +232,7 @@ We use @classmethod decorator to tell python that it is a classmethod. By doing 
 
 ### Static method
 
-
-## OOPs concepts:
-
-### Inheritance
-**Definition**: Child object with attributes and methods of the parent class. Can be a single or multiple-inheritance.
-
-**Benefits**: Code-reusability
-
-**How to achieve**: Create base or parent classes, and for child or derived classes inherit the parent class. 
-
-**Example**: Create Car class, and inherit it for ElectricCars, CNGCars and Petrol or DieselCars.
-
-
-
-### Polymorphism
-**Definition**: Having many forms(Poly = multiple, morph = forms). The process of using a function in different ways for different data input. 
-
-**Benefits**: Can create the same template or specific implementation for future objects in the base class and modify the functionality of the individual derived class.(Method-overriding a run-time polymorphism)
-
-**How to achieve**: Can be achieved with or without Inheritance. The derived class method name should be the same as the parent class name.
-
-**Examples**: We have two classes, Dog and Cat inherited from an Animal base class. The **speak method** of both of the derived class can not have the same value. for Dog class it return **bark** but for Cat it should return **Meow**.
-
-### Encapsulation
-**Definition**: Restrict access to properties and methods. Works as a wrapper to conceal data within a class. It is carried out at the implementation level. It is the process of hiding the data involved in the code.
-
-**Benefits**: Restricting the access to the protected and private methods and preventing the accidental modification.
-
-**How to achieve**: Use Pythonic convention of leading single underscore for naming protected variables and methods and leading double underscore to create private variables and methods. We can allow the changes to the attributes through methods only. 
-
-**Examples**:  _variable_name, _method_name for protected and __variable_name, __method_name for private variables and methods.
-
-### Abstraction:
-**Definition**: Abstraction is used through encapsulation by hiding the internal functionality or implementation logic  from the users. It is carried out at the design level. It is the process of hiding the details of the implementation of the code.
-
-**Benefits**: Used to hide details and show only the functionalities of the class.
-Reduce the complexity of the code.
-
-**How to achieve**: By creating abstract classes and interfaces.
-
-## Useful Methods:
+## Helpful In-build Methods:
 ### dir(): List all the data and methods associated with `instance car1` and `class Car`.
 ```python
 print(dir(car1))
@@ -363,3 +323,44 @@ print(Animal.__dict__)
 # Output:
 {'__module__': '__main__', '__init__': <function Animal.__init__ at 0x7f295e98ef70>, '__str__': <function Animal.__str__ at 0x7f295e935040>, 'walk': <function Animal.walk at 0x7f295e9350d0>, 'jump': <function Animal.jump at 0x7f295e935160>, 'speak': <function Animal.speak at 0x7f295e9351f0>, '__dict__': <attribute '__dict__' of 'Animal' objects>, '__weakref__': <attribute '__weakref__' of 'Animal' objects>, '__doc__': None}
 ```
+
+## OOPs concepts:
+
+### Inheritance
+**Definition**: Child object with attributes and methods of the parent class. Can be a single or multiple-inheritance.
+
+**Benefits**: Code-reusability
+
+**How to achieve**: Create base or parent classes, and for child or derived classes inherit the parent class. 
+
+**Example**: Create Car class, and inherit it for ElectricCars, CNGCars and Petrol or DieselCars.
+
+
+
+### Polymorphism
+**Definition**: Having many forms(Poly = multiple, morph = forms). The process of using a function in different ways for different data input. 
+
+**Benefits**: Can create the same template or specific implementation for future objects in the base class and modify the functionality of the individual derived class.(Method-overriding a run-time polymorphism)
+
+**How to achieve**: Can be achieved with or without Inheritance. The derived class method name should be the same as the parent class name.
+
+**Examples**: We have two classes, Dog and Cat inherited from an Animal base class. The **speak method** of both of the derived class can not have the same value. for Dog class it return **bark** but for Cat it should return **Meow**.
+
+### Encapsulation
+**Definition**: Restrict access to properties and methods. Works as a wrapper to conceal data within a class. It is carried out at the implementation level. It is the process of hiding the data involved in the code.
+
+**Benefits**: Restricting the access to the protected and private methods and preventing the accidental modification.
+
+**How to achieve**: Use Pythonic convention of leading single underscore for naming protected variables and methods and leading double underscore to create private variables and methods. We can allow the changes to the attributes through methods only. 
+
+**Examples**:  _variable_name, _method_name for protected and __variable_name, __method_name for private variables and methods.
+
+### Abstraction:
+**Definition**: Abstraction is used through encapsulation by hiding the internal functionality or implementation logic  from the users. It is carried out at the design level. It is the process of hiding the details of the implementation of the code.
+
+**Benefits**: Used to hide details and show only the functionalities of the class.
+Reduce the complexity of the code.
+
+**How to achieve**: By creating abstract classes and interfaces.
+
+
