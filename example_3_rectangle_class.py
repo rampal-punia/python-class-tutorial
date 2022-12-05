@@ -33,6 +33,14 @@ class Rectangle:
         """
         return cls(side, side)
 
+    def is_square(self):
+        # Method to check whether the quadrilateral is a square
+        if Rectangle.is_quadrilateral():
+            if self.length == self.width:
+                return True
+        else:
+            return False
+
     @classmethod
     def is_quadrilateral(cls):
         # Class method to manipulate a class variable
