@@ -40,7 +40,7 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 - [Instance methods, class methods and static methods](https://github.com/CodingMantras/python-class-tutorial#instance-methods-class-methods-and-static-methods)
 
-- Helpful in-build methods: `dir()`, `help(__class__)`, `MRO`, `is_instance` and  `__dict__`.
+- [Helpful in-build methods: `dir()`, `help(__class__)`, `MRO`, `is_instance` and  `__dict__`.](https://github.com/CodingMantras/python-class-tutorial#helpful-in-build-methods)
 
 - Use of property decorator
 
@@ -363,4 +363,6 @@ Reduce the complexity of the code.
 
 **How to achieve**: By creating abstract classes and interfaces.
 
+---
 
+This tutorial is still under development. If you find any spelling, grammatical or syntax error, convey it through raising issues. There may be other concept related mistakes, if you found any please raise issue, or discuss.
