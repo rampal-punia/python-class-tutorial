@@ -38,12 +38,16 @@ class Cat(Animal):
         super().__init__(name, age)
         self.color = color
 
+    def description(self):
+        print("======= Description of the Animal(Cat) =======")
+        return f"Name: {self.name}\nAge: {self.age}\nColor: {self.color}\n"
+
     def speak(self, sound):
         print(super().speak(sound))
-        return f"{self.name} : {sound}"
+        return f"{self.name} meow: {sound}"
 
-    def speed(self, speed):
-        return f"The speed of the cats are generally {self.speed} km/h"
+    def get_speed(self, speed):
+        return f"The speed of the cats are generally {speed} km/h"
 
 
 animal1 = Animal("Milo", 5)
@@ -53,4 +57,18 @@ print(animal1.jump())
 dog1 = Dog("Walter", 4, 'papillon')
 print(dog1.description())
 print(dog1.walk())
-print(dog1.speak("woof "*3))
+print(dog1.speak("WOOF "*3))
+
+cat1 = Cat("Luna", 2, 'brown')
+print(cat1.description())
+print(cat1.get_speed(35))
+print(cat1.speak("MEW "*2))
+
+print(Dog.__mro__)
+print(isinstance(dog1, Dog))
+print(isinstance(cat1, Cat))
+# print(help(cat1))
+
+print(cat1.__dict__)
+print(Dog.__dict__)
+print(Animal.__dict__)

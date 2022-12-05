@@ -1,10 +1,12 @@
 # Python Classes Tutorial
 
-If we look at the features of the Python Programming Language. We find that, Python is:
+If we look at the features of the Python Programming Language. We find that, Python is/has:
 
 - Easy to learn
 
 - Powerful & interpreted programming language
+
+- Ideal for scripting and rapid application development
 
 - Efficient high-level data structures
 
@@ -12,14 +14,13 @@ If we look at the features of the Python Programming Language. We find that, Pyt
 
 - Elegant syntax and dynamic typing
 
-- Ideal for scripting and rapid application development
-
 - Useful in various domains on most platforms
 
-One of the main features of Python is; it has **Effective approach to object-oriented programming**. So, let's first find out What does `Object-Oriented-Programming` means?
+One of the main features of Python is; it has **Effective approach to object-oriented programming**. So, let's first find out what does `Object-Oriented-Programming` means?
 
 OOP is the programming paradigm where the real-life object is at the center of all the concepts and methodology used to perform a task or a process. Instead of calling the procedures and functions to calculate the data as and when required, OOP uses a blueprint to create an object of a class and bundle data and functionality to it.   
 
+---
 
 ## In this tutorial:
 
@@ -29,11 +30,7 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 - Naming a 'class'
 
-- Syntax of a 'class'
-
 - `class` keyword and `__init__` method
-
-- Helpful in-build methods: `dir()`, `help(__class__)`, `MRO`, `is_instance` and  `__dict__`.
 
 - What is an 'instance of a class'
 
@@ -41,11 +38,25 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 - Instance methods, class methods and static methods
 
+- Helpful in-build methods: `dir()`, `help(__class__)`, `MRO`, `is_instance` and  `__dict__`.
+
 - Use of property decorator
 
-- Example of a `Point Class`
-
 - OOPs concepts (Inheritance, Polymorphism, Encapsulation, Abstraction - IPEA)
+
+---
+
+## Examples and Project (Tutorials Purpose):
+
+1. Point Class
+
+2. Animal Class
+
+3. Rectangle Class
+
+4. Student Management System
+
+---
 
 ## Definition of class:
 
@@ -58,66 +69,83 @@ A python class is like a **blueprint to create a new object**. The objects havin
 
 ---
 
+## Naming a class
+
+To name a `class` in Python the convention is to start with capital letter like: Animal, Employee, ImageDetector.
+
+---
+
 ## class keyword and __init__ method
 Everything in Python is a class. like **list**, **int**, **str**, **tuple**, **functions**, **sys** etc. To create a user defined object we use **class** keyword in Python. The special method **__init__** is used to initialize an object of that class.
 
-
-
-## Attributes and methods:
-From the above example of a rectangle class we can deduce:
-
-- Attributes: length, width, num of sides, number of diagonals
-- Methods: Area, Perimeter
-
 ---
 
+### An example of a `Car class`:
+Let's say, we need to create a record of cars manufactured by the Tata Motors. The data and data related to car are as mentioned below. 
+
+MAKE = "TATA Motors"
+Year = 2022
+
+|Model|Color|Speed|Month| 
+|-----|---|---|---|
+|Nexon|Grey|160|November|
+|Nexon|Black|160| November|
+|Harrier|Black|180| December|
+|Harrier|Dark Grey|180| December|
 
 
-## Instance
-> An object of a class (constructed or instantiated from the class) is called the instance of that class. From our rectangle class example:
+**A table containing details of each Car. The row of this table represents the each instance of a class and columns represents attributes associated with an instance of the Car class**. 
 
-If we say **create new instance of the rectangle class**, it means we already have 3 instances and now let's create the fourth one. And when we say get the area of the second **instance of the rectangle class** it means we are talking about the second object of this class.
+For this we will create the Car class in Python like below:
 
----
-
-### An example of a `Rectangle class`:
-A table containing rectangles. A new rectangle can be added to this bundle under the following columns:
-
-| length 	   | width 	   |  Area 	         |      perimeter        | num of sides | num of diagonals | 
-|--------------|-----------|-----------------|-----------------------|--------------| -----------------|
-| 15           | 10        |  length * width |      2(length + width)| 4            | 2                |
-| 20           | 18        |  length * width |      2(length + width)| 4            | 2                |     
-| 25           | 20        |  length * width |      2(length + width)| 4            | 2                |
-
----
-
-**Examples**: 
 ```python
-class Rectangle:
-    # Class level variables, shared by all the instances.
-    num_of_sides = 4
-    num_of_diagonals = 2
+class Car:
+    MAKE = "TATA Motors"
+    year = 2022
 
-    def __init__(self, length, width):
-        # Instance level variables. Different for all the instances.
-        # self.length and self.width are instance variables
-        self.length = length
-        self.width = width
+    def __init__(self, model, color, speed, month):
+        self.model = model
+        self.color = color
+        self.speed = speed
+        self.month = month
 
-    def area(self):
-        """Instance method to calculate the area of individual instance of rectangle
-        class on the basis of instance variables (self.length and self.width).
-        """
-        return self.length * self.width
+    def get_speed(self):
+        return f"The max-speed of {Car.MAKE} car '{self.model}' is {self.speed} km/h"
 
-    def perimeter(self):
-        """Instance method to calculate the perimeter of individual instance of rectangle
-        class on the basis of instance variables (self.length and self.width).
-        """
-        return 2 * (self.length + self.width)
+    def accelerate(self):
+        return "The vehicle is accelerating"
+
+    def apply_brake(self):
+        return "The vehicle is de-accelerating"
+
+    def description(self):
+        print(f"Company name: {Car.MAKE}")
+        print(f"Model: {self.model}")
+        print(f"Color: {self.color}")
+        print(f"Max Speed: {self.speed}")
+        print(f"Manufacturing Year: {Car.year}")
+        print(f"Manufacturing Month: {self.month}")
+
+
+c1 = Car("Harrier", "grey", 180, 'December')
+c1.description()
+print(c1.get_speed())
 ```
 
-- We can not instantiate the `Animal class` here as it is the 'abstract baseclass'.
+---
+
+## Instance
+> An object of a class (constructed or instantiated from the class) is called the instance of that class. From our car class example (above):
+
+If we want to add another record into our Car table above, so we will **create new instance of the car class**, it means we already have 4 instances(rows) in our table, and now let's create the fifth one.
+
+---
+
+## Attributes and methods:
+From the above example of a Car class we can deduce:
+
+- Attributes: model, color, speed, month
+- Methods: get_speed(), accelerate(), apply_break(), description().
 
 ---
 
@@ -128,16 +156,16 @@ The variables associated to a particular instance of a class.Also we can say, th
 
 We can declared them in the special method of a class named **__init__**.
 
-In our example of rectangle class, every instance of the rectangle class have their own set of length and width. So, length and width are the instance variables(attributes)
+In our example of Car class, every instance of the Car class have their own set of model, color, speed, month associated with it. So, these are the instance variables(attributes)
 
 We use dot notation with class instance  to access them. e.g.
 ```python
 # create a new instance
-rec1 = Rectangle(7, 4)
+car1 = Car("Harrier", "grey", 180, 'December')
 
-# access the width and length of that instance
-print(rec1.width)
-print(rec1.length)
+# access the name and speed of this instance
+print(car.name)
+print(car.speed)
 ```
 
 ---
@@ -147,25 +175,19 @@ The variables associated with all the the instances of a class. They are shared 
 
 we can declare them within a class but outside of any method.
 
-In our example of rectangle class, the number of sides and number of diagonals are same for all the rectangles. So we declare them **outside of the __init__** method.
+In our example of Car class, the MAKE and year are the same for all the Cars for a particular year. So we declare them **outside of the __init__** method.
 
 ```python
-class Rectangle:
-    # Class level variables, same for all the instances, and shared by all the instances.
-    num_of_sides = 4
-    num_of_diagonals = 2
-
-    def __init__(self, length, width):
-        # Instance level variables. Different for all the instances.
-        self.length = length
-        self.width = width
+class Car:
+    MAKE = "TATA Motors"
+    year = 2022
 ```
 
 We use dot notation with class name to access class variables. e.g.
 ```python
 # access the class variables
-print(Rectangle.num_of_sides)
-print(Rectangle.num_of_diagonals)
+print(Car.MAKE)
+print(Car.year)
 ```
 ---
 
@@ -174,53 +196,34 @@ print(Rectangle.num_of_diagonals)
 ### Instance methods:
 Every instance of the class have different set of data associated with them in the form of instance variables and other instance related values. The methods used to manipulate/calculate the data/values of an individual instance are called instance methods.
 
-In our example of rectangle class, the area for different set of width and length is different, we need to calculate it for all the different instances. So the methods used to calculate these values are instance methods. e.g.
+In our example of Car class, the get_speed(), apply_brakes() are the methods applied on each instance. Here, we need to get it for all the different instances. Therefore, the methods used to calculate these values are instance methods. e.g.
 
-```python
-class Rectangle:
-    # Class level variables, shared by all the instances.
-    num_of_sides = 4
-    num_of_diagonals = 2
-
-    def __init__(self, length, width):
-        # Instance level variables. Different for all the instances.
-        # self.length and self.width are instance variables
-        self.length = length
-        self.width = width
-
-    def area(self):
-        """Instance method to calculate the area of individual instance of rectangle
-        class on the basis of instance variables (self.length and self.width).
-        """
-        return self.length * self.width
-
-    def perimeter(self):
-        """Instance method to calculate the perimeter of individual instance of rectangle
-        class on the basis of instance variables (self.length and self.width).
-        """
-        return 2(self.length + self.width)
-```
 
 To access the instance methods:
 ```python
-# Instantiate the Rectangle class (create a new rectangle object)
-rec1 = Rectangle(7, 4)
-
-# print area and perimeter of rec1
-print(rec1.area())
-print(rec1.perimeter())
+car = Car("Harrier", "grey", 180, 'December')
+car.description()
+print(car.get_speed())
 ```
 
 ### Class methods
 The methods that are not related to an individual instance of a class but called upon the class itself. Just like the class variables, class methods are also shared by all the instances of that class.
 
-In our example of Rectangle class, if we need to work upon the class variables like num_of_sides and num_of_diagonals, we should get it done through a class method. As this will be applicable to all the instances. e. g.
+In our example of Car class, if we need to work upon the class variables like year (MAKE is constant here. By python convention if the name of the variable is all uppercase it means that variable is not to be changed) we should get it done through a class method. As this will be applicable to all the instances. e. g.
 
 ```python
     @classmethod
-    def get_num_of_joining_lines(cls):
-        # Class method to manipulate all the class variables
-        return cls.num_of_sides + cls.num_of_diagonals
+    def change_year(cls, new_year):
+        cls.year = new_year
+        return cls.year
+
+car1 = Car("Harrier", "grey", 180, 'December')
+car2 = Car("Nexon", "Dark Grey", 160, 'January')
+
+year = Car.change_year(2023)
+print(year)
+print(car1.year)
+print(car2.year)
 ```
 
 We use @classmethod decorator to tell python that it is a classmethod. By doing so, the python sends the class itself as this method's first parameter.
@@ -267,15 +270,94 @@ Reduce the complexity of the code.
 
 **How to achieve**: By creating abstract classes and interfaces.
 
+## Useful Methods:
+### dir(): List all the data and methods associated with `instance car1` and `class Car`.
+```python
+print(dir(car1))
+# Output:
+['MAKE', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'accelerate', 'apply_brake', 'change_year', 'color', 'description', 'get_speed', 'model', 'month', 'speed', 'year']
 
+Print(dir(Car))
+['MAKE', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'accelerate', 'apply_brake', 'change_year', 'description', 'get_speed', 'year']
+```
 
-## Inheritance
-- Creating an Employee Class
-- Initialize the child class attributes and methods
-- Super()
-- isinstance(), MRO()
-- Override Parent class method
+### MRO: Methods Resolution Order
+In example_2_animal_class we can check the MRO for the child classes Dog and Cat.
+```python
+print(Dog.__mro__)
 
-## 8. Project
-Student management system
+# Output:
+(<class '__main__.Dog'>, <class '__main__.Animal'>, <class 'object'>)
+```
+### is_instance(): 
+```python
+print(isinstance(cat1, Cat))
 
+# Output:
+True
+```
+
+### Help(): Python docs
+```python
+print(help(cat1))
+```
+### Output:
+```bash
+Help on Cat in module __main__ object:
+
+class Cat(Animal)
+ |  Cat(name, age, color)
+ |  
+ |  Method resolution order:
+ |      Cat
+ |      Animal
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, name, age, color)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  description(self)
+ |  
+ |  get_speed(self, speed)
+ |  
+ |  speak(self, sound)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from Animal:
+ |  
+ |  __str__(self)
+ |      Return str(self).
+ |  
+ |  jump(self)
+ |  
+ |  walk(self)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from Animal:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)  
+(END)
+```
+
+### __dict__ method
+```python
+print(cat1.__dict__)
+
+# Output:
+{'name': 'Luna', 'age': 2, 'color': 'brown'}
+
+print(Dog.__dict__)
+
+# Output:
+{'__module__': '__main__', '__init__': <function Dog.__init__ at 0x7f295e935280>, 'description': <function Dog.description at 0x7f295e935310>, 'speak': <function Dog.speak at 0x7f295e9353a0>, 'speed': <function Dog.speed at 0x7f295e935430>, '__doc__': None}
+
+print(Animal.__dict__)
+# Output:
+{'__module__': '__main__', '__init__': <function Animal.__init__ at 0x7f295e98ef70>, '__str__': <function Animal.__str__ at 0x7f295e935040>, 'walk': <function Animal.walk at 0x7f295e9350d0>, 'jump': <function Animal.jump at 0x7f295e935160>, 'speak': <function Animal.speak at 0x7f295e9351f0>, '__dict__': <attribute '__dict__' of 'Animal' objects>, '__weakref__': <attribute '__weakref__' of 'Animal' objects>, '__doc__': None}
+```
