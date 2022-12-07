@@ -16,5 +16,14 @@
         "rollnum": "2",
         "contact": "1111111111",
         "class": "ONE"
+    },
+    {
+        "admission_num": 1002,
+        "fname": "James",
+        "lname": "Carter",
+        "email": "James_Carter@HappySchool.com",
+        "rollnum": "3",
+        "contact": "5555555555",
+        "class": "ONE"
     }
 ]

@@ -6,24 +6,6 @@ from helper import FileData, ClassName, Subject
 import settings
 
 
-def update_teacher_data():
-    pass
-
-
-def add_teacher():
-    fname = input("First Name: ")
-    lname = input("Last Name: ")
-    contact = input("Phone Number: ")
-    empid = input("Employee ID: ")
-    subject_code = int(input(f"{Subject.get_subjects_list()}: "))
-    subject = Subject(subject_code)
-    teacher = Teacher(fname, lname, contact, empid, subject)
-    print("=============================================================")
-    print("Following details added to the teachers file.")
-    teacher.print_instance_detail()
-    SaveTeacher(teacher)
-
-
 def add_student():
     fname = input("First Name: ")
     lname = input("Last Name: ")
@@ -68,7 +50,22 @@ def delete_student(delete_id):
 def display_students():
     filename, data = FileData(settings.STUDENT_FILENAME).load()
     print("===========================================")
+    print(f"Data added to file: {filename}")
     pprint(data)
+
+
+def add_teacher():
+    fname = input("First Name: ")
+    lname = input("Last Name: ")
+    contact = input("Phone Number: ")
+    empid = input("Employee ID: ")
+    subject_code = int(input(f"{Subject.get_subjects_list()}: "))
+    subject = Subject(subject_code)
+    teacher = Teacher(fname, lname, contact, empid, subject)
+    print("=============================================================")
+    print("Following details added to the teachers file.")
+    teacher.print_instance_detail()
+    SaveTeacher(teacher)
 
 
 print("1: Manage Student")
