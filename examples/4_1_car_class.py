@@ -1,24 +1,28 @@
-'''📝 Python Class Tutorial: Best practice to choose variables in __init__ method.
+'''📝 Python Class Tutorial: 
 
-✨ Example of a car class. Things to be required 
+✨ Car class, where each object of this class has:
+instance_variables: model, category, speed
+class_variables: MAKE, year
+instance_methods: get_speed, accelerate, apply_brake, description
+class_methods: change_year
 '''
 
 
 class Car:
-    """A car class to associate all the models of a car company."""
+    """A car class for all the models of a car company."""
     MAKE = "TATA Motors"
     year = 2022
 
-    def __init__(self, model, color, speed):
-        """Constructor of Car class with model, color and speed.
+    def __init__(self, model, category, speed):
+        """Constructor of Car class with model, category and speed.
 
         Args:
-            model (_type_): _description_
-            color (_type_): _description_
-            speed (_type_): _description_
+            model (str): the model of the car
+            category (str): name of the category of the car
+            speed (int): The speed of the car
         """
         self.model = model
-        self.color = color
+        self.category = category
         self.speed = speed
 
     def get_speed(self):
@@ -31,11 +35,13 @@ class Car:
         return "The vehicle is de-accelerating"
 
     def description(self):
+        print("==========================================")
         print(f"Company name: {Car.MAKE}")
         print(f"Model: {self.model}")
-        print(f"Color: {self.color}")
+        print(f"Category: {self.category}")
         print(f"Max Speed: {self.speed}")
         print(f"Manufacturing Year: {Car.year}")
+        print()
 
     @classmethod
     def change_year(cls, new_year):
@@ -43,9 +49,14 @@ class Car:
         return cls.year
 
 
-car1 = Car("Harrier", "grey", 180)
-car2 = Car("Nexon", "Dark Grey", 160)
+car1 = Car("Altroz", "Hatchback", 160)
+car2 = Car("Nexon", "Compact SUV", 160)
+car3 = Car("Safari", "MUV", 170)
+car4 = Car("Harrier", "SUV", 180)
 car1.description()
+car2.description()
+car3.description()
+car4.description()
 print(car1.get_speed())
 
 year = Car.change_year(2023)

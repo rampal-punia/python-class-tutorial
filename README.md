@@ -69,7 +69,7 @@ A python class is like a **blueprint to create a new object**. The objects havin
 ---
 
 ## Reason for creating a class:
-To accumulate the data of similar properties and methods together. 
+To accumulate the data and functionalities of similar objects at one place. 
 
 By creating a new object we add this new instance, or any future instance, to a particular bundle. That bundle is called a `class`. If we have the same set of objects with similar attributes and functionalities we should create a class. Also, class supports inheritance. With classes we can reuse our codes or the codes written by other programmers. (Packages, modules and frameworks)
 
@@ -104,12 +104,12 @@ Let's say, we need to create a record of cars manufactured by the Tata Motors. T
 MAKE = "TATA Motors"
 Year = 2022
 
-|Model|Color|Speed|
+|Model|Category|Speed|
 |-----|---|---|
-|Altroz|Blue|160|
-|Nexon|Grey|160|
-|Harrier|Dark Grey|180|
-|Safari|Black|170|
+|Altroz|Hatchback|160|
+|Nexon|Compack SUV|160|
+|Harrier|SUV|180|
+|Safari|MUV|170|
 
 **A table containing details of each Car. The row of this table represents the each instance of a class and columns represents attributes associated with an instance of the Car class**. 
 
@@ -117,12 +117,20 @@ For this we will create the Car class in Python like below:
 
 ```python
 class Car:
+    """A car class for all the models of a car company."""
     MAKE = "TATA Motors"
     year = 2022
 
-    def __init__(self, model, color, speed):
+    def __init__(self, model, category, speed):
+        """Constructor of Car class with model, category and speed.
+
+        Args:
+            model (str): the model of the car
+            category (str): name of the category of the car
+            speed (int): The speed of the car
+        """
         self.model = model
-        self.color = color
+        self.category = category
         self.speed = speed
 
     def get_speed(self):
@@ -135,11 +143,13 @@ class Car:
         return "The vehicle is de-accelerating"
 
     def description(self):
+        print("==========================================")
         print(f"Company name: {Car.MAKE}")
         print(f"Model: {self.model}")
-        print(f"Color: {self.color}")
+        print(f"Category: {self.category}")
         print(f"Max Speed: {self.speed}")
         print(f"Manufacturing Year: {Car.year}")
+        print()
 
     @classmethod
     def change_year(cls, new_year):
@@ -147,10 +157,14 @@ class Car:
         return cls.year
 
 
-car1 = Car("Harrier", "grey", 180)
-car2 = Car("Nexon", "Dark Grey", 160)
+car1 = Car("Altroz", "Hatchback", 160)
+car2 = Car("Nexon", "Compact SUV", 160)
+car3 = Car("Safari", "MUV", 170)
+car4 = Car("Harrier", "SUV", 180)
 car1.description()
-print(car1.get_speed())
+car2.description()
+car3.description()
+car4.description()
 ```
 
 ---
@@ -165,7 +179,7 @@ If we want to add another record into our Car table above, so we will **create n
 ## Attributes and methods:
 From the above example of a Car class we can deduce:
 
-- Attributes: model, color, speed
+- Attributes: model, category, speed
 - Methods: get_speed(), accelerate(), apply_break(), description().
 
 ---
@@ -177,7 +191,7 @@ The variables associated to a particular instance of a class.Also we can say, th
 
 We can declared them in the special method of a class named **__init__**.
 
-In our example of Car class, every instance of the Car class have their own set of model, color, speed associated with it. So, these are the instance variables(attributes)
+In our example of Car class, every instance of the Car class have their own set of model, category, speed associated with it. So, these are the instance variables(attributes)
 
 We use dot notation with class instance  to access them. e.g.
 ```python
@@ -256,7 +270,7 @@ We use @classmethod decorator to tell python that it is a classmethod. By doing 
 ```python
 print(dir(car1))
 # Output:
-['MAKE', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'accelerate', 'apply_brake', 'change_year', 'color', 'description', 'get_speed', 'model', 'month', 'speed', 'year']
+['MAKE', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'accelerate', 'apply_brake', 'change_year', 'category', 'description', 'get_speed', 'model', 'speed', 'year']
 
 Print(dir(Car))
 ['MAKE', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'accelerate', 'apply_brake', 'change_year', 'description', 'get_speed', 'year']
