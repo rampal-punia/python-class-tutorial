@@ -1,0 +1,20 @@
+[
+    {
+        "admission_num": 1000,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "John_Doe@HappySchool.com",
+        "rollnum": "1",
+        "contact": "2222222222",
+        "class": "ONE"
+    },
+    {
+        "admission_num": 1001,
+        "fname": "Mary",
+        "lname": "Jane",
+        "email": "Mary_Jane@HappySchool.com",
+        "rollnum": "2",
+        "contact": "1111111111",
+        "class": "ONE"
+    }
+]

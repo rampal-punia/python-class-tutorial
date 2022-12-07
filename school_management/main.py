@@ -1,8 +1,9 @@
+from pprint import pprint
+
 from student import Student, SaveStudent, UpdateStudent, DeleteStudent
 from teacher import Teacher, SaveTeacher
 from helper import FileData, ClassName, Subject
-
-from pprint import pprint
+import settings
 
 
 def update_teacher_data():
@@ -26,9 +27,10 @@ def add_teacher():
 def add_student():
     fname = input("First Name: ")
     lname = input("Last Name: ")
-    contact = input("Phone Number: ")
+    contact = input("Phone Number(Must contains 10 digits): ")
     rollnum = input("Roll Number: ")
-    class_code = input(f"{ClassName.get_classnames_list()}: ")
+    class_code = input(
+        f"Class: Select from {[cl.value for cl in ClassName.get_classnames_list()]}: ")
     cl = ClassName(class_code)
     student = Student(fname, lname, contact, rollnum, cl)
     print("=============================================================")
@@ -64,7 +66,7 @@ def delete_student(delete_id):
 
 
 def display_students():
-    filename, data = FileData().load()
+    filename, data = FileData(settings.STUDENT_FILENAME).load()
     print("===========================================")
     pprint(data)
 
