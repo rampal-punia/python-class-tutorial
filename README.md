@@ -73,6 +73,18 @@ To accumulate the data of similar properties and methods together.
 
 By creating a new object we add this new instance, or any future instance, to a particular bundle. That bundle is called a `class`. If we have the same set of objects with similar attributes and functionalities we should create a class. Also, class supports inheritance. With classes we can reuse our codes or the codes written by other programmers. (Packages, modules and frameworks)
 
+With proper implementation of classes, in theories, we achieve:
+
+- Separation of concerns
+
+- Decoupling
+
+- Encapsulation
+
+- Implementation hiding
+
+- Inheritance
+
 ---
 
 ## Naming a class
@@ -372,6 +384,10 @@ print(Animal.__dict__)
 Reduce the complexity of the code.
 
 **How to achieve**: By creating abstract classes and interfaces.
+
+---
+
+To avoid the temptation of writing classes for every problem at hand, and everywhere we like do watch this vice. [Stop writing classes](https://www.youtube.com/watch?v=o9pEzgHorH0)
 
 ---
 

@@ -1,8 +1,22 @@
+'''📝 Python Class Tutorial: Best practice to choose variables in __init__ method.
+
+✨ Example of a car class. Things to be required 
+'''
+
+
 class Car:
+    """A car class to associate all the models of a car company."""
     MAKE = "TATA Motors"
     year = 2022
 
     def __init__(self, model, color, speed):
+        """Constructor of Car class with model, color and speed.
+
+        Args:
+            model (_type_): _description_
+            color (_type_): _description_
+            speed (_type_): _description_
+        """
         self.model = model
         self.color = color
         self.speed = speed
