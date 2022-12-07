@@ -7,23 +7,5 @@
         "contact": "0123456789",
         "empid": "5003",
         "subject": "SCIENCE"
-    },
-    {
-        "id": 1,
-        "fname": "Shubhash",
-        "lname": "Garg",
-        "email": "Shubhash_Garg@schoolname.com",
-        "contact": "0123456789",
-        "empid": "5003",
-        "subject": "SCIENCE"
-    },
-    {
-        "id": 2,
-        "fname": "Shubhash",
-        "lname": "Garg",
-        "email": "Shubhash_Garg@schoolname.com",
-        "contact": "0123456789",
-        "empid": "5003",
-        "subject": "SCIENCE"
     }
 ]
