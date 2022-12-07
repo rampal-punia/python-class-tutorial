@@ -16,7 +16,7 @@ def add_student():
     cl = ClassName(class_code)
     student = Student(fname, lname, contact, rollnum, cl)
     print("=============================================================")
-    print("Following details added to the students file.")
+    print("Following details added to the students file(student.json).")
     student.print_instance_detail()
     SaveStudent(student)
 
@@ -48,9 +48,8 @@ def delete_student(delete_id):
 
 
 def display_students():
-    filename, data = FileData(settings.STUDENT_FILENAME).load()
+    _, data = FileData(settings.STUDENT_FILENAME).load()
     print("===========================================")
-    print(f"Data added to file: {filename}")
     pprint(data)
 
 
