@@ -1,0 +1,8 @@
+STUDENT_FILENAME = 'school_management/student.json'
+TEACHER_FILENAME = 'teacher.json'
+
+
+DEFAULT_SUBJECT = 'HINDI'
+DEFAULT_CLASSNAME = 'ONE'
+
+FIRST_ADMISSION_NUM = 1000

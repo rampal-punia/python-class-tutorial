@@ -73,6 +73,8 @@ To accumulate the data and functionalities of similar objects at one place.
 
 By creating a new object we add this new instance, or any future instance, to a particular bundle. That bundle is called a `class`. If we have the same set of objects with similar attributes and functionalities we should create a class. Also, class supports inheritance. With classes we can reuse our codes or the codes written by other programmers. (Packages, modules and frameworks)
 
+The state of objects of a class should be changed through the methods defined in the class. The whole point of creating a class is to put the codes that can change the state of a class at the same place, nice and organized, so that we know where to find in the code base to fix a related bug. Classes not only increase the readability and the reusability of the code but also the maintainability.
+
 With proper implementation of classes, in theories, we achieve:
 
 - Separation of concerns

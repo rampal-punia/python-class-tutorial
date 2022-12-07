@@ -1,7 +1,7 @@
 from choices import ClassName, Subject
 from student import Student, SaveStudent, UpdateStudent, DeleteStudent
 from teacher import Teacher, SaveTeacher
-from helper import LoadStudentData
+from helper import StudentData
 
 from pprint import pprint
 
@@ -65,7 +65,7 @@ def delete_student(delete_id):
 
 
 def display_students():
-    filename, data = LoadStudentData().load_data()
+    filename, data = StudentData().load_data()
     print("===========================================")
     pprint(data)
 

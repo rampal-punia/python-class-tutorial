@@ -2,7 +2,7 @@ import json
 
 from member import Member
 from choices import Subject
-from helper import LoadTeacherData
+from helper import TeacherData
 
 
 class Teacher(Member):
@@ -72,7 +72,7 @@ class SaveTeacher:
         self.save()
 
     def save(self):
-        std_data = LoadTeacherData()
+        std_data = TeacherData()
         fl, teacher_data = std_data.load_data()
         teacher_data.append(self.student)
         with open(fl, self.mode) as teacher_file:

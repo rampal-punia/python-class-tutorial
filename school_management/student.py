@@ -1,32 +1,36 @@
 import datetime
+from itertools import count
 
-from member import Member
-from choices import ClassName
-from helper import LoadStudentData, write_file
+from helper import FileData, Member, ClassName, write_file
+import settings
 
 
 class Student(Member):
-    school_name = 'Happy School'
+    SCHOOL_NAME = 'Happy School'
 
     def __init__(self, fname, lname, contact, rollnum, classname):
         super().__init__(fname, lname, contact)
-        self.admission_num = 1000
         self.admission_date = datetime.date.today()
         self.rollnum = rollnum
-        self.email = f"{self.fname}_{self.lname}@{Student.school_name.replace(' ', '')}.com"
-        self.filename, self.data = LoadStudentData().load_data()
+        self.email = f"{self.fname}_{self.lname}@{Student.SCHOOL_NAME.replace(' ', '')}.com"
+        fl_data = FileData(settings.STUDENT_FILENAME)
+        self.filename, self.data = fl_data.load()
 
         if isinstance(classname, ClassName):
             self.classname = classname.name
         else:
-            print(f"[INFO] classname should one of the following...")
-            print(ClassName.get_classnames_dict())
+            print(f"[INFO] classname should be one of the following...")
+            print(ClassName.get_classnames_info())
             print("[DEFAULT] Setting classname ONE.")
             self.classname = ClassName.get_default_class()
 
+    @property
+    def admission_num(self):
+        return next(count)
+
     def get_admission_num(self):
         if self.data == []:
-            return self.admission_num
+            return settings.FIRST_ADMISSION_NUM
         else:
             return self.data[-1]["admission_num"] + 1
 
@@ -46,10 +50,6 @@ class Student(Member):
         for k, v in self.student_data().items():
             print(f"{k}:{v}")
 
-    @classmethod
-    def change_schoolname(cls, schoolname):
-        cls.school_name = schoolname
-
     def __str__(self):
         return f"{self.rollnum}-{self.fname}"
 
@@ -61,7 +61,7 @@ class SaveStudent:
         else:
             print("[ERROR] Unable to create new student instance...")
         self.mode = 'w'
-        self.fl, self.student_data = LoadStudentData().load_data()
+        self.fl, self.student_data = FileData(settings.STUDENT_FILENAME).load()
         self.save()
 
     def save(self):
@@ -73,7 +73,7 @@ class UpdateStudent:
     def __init__(self, admission_num):
         self.admission_num = admission_num
         self.mode = 'w'
-        self.fl, self.student_data = LoadStudentData().load_data()
+        self.fl, self.student_data = FileData(settings.STUDENT_FILENAME).load()
 
     def get_student(self):
         for stu in self.student_data:
@@ -90,7 +90,7 @@ class DeleteStudent:
     def __init__(self, admission_num):
         self.admission_num = admission_num
         self.mode = 'w'
-        self.fl, self.student_data = LoadStudentData().load_data()
+        self.fl, self.student_data = FileData(settings.STUDENT_FILENAME).load()
         self.delete()
 
     def delete(self):
@@ -99,8 +99,9 @@ class DeleteStudent:
 
 
 if __name__ == '__main__':
-    cl = ClassName.FIVE
-    std1 = Student("Anubhav", "Mishra", "0123456789", "1002", cl)
-    print(std1.school_name)
-    std1.change_schoolname("hahaha school")
-    print(std1.school_name)
+    cl = ClassName.TWO
+    std1 = Student("John", "Doe", "5555555555", "3", cl)
+    std2 = Student("Mary", "Jane", "2222222222", "4", cl)
+    print(SaveStudent(std1))
+    print(SaveStudent(std2))
+    # print(std2.data)

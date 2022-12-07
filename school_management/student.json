@@ -1,29 +1,38 @@
 [
     {
-        "id": 0,
-        "fname": "Mansa",
-        "lname": "Sharma",
-        "email": "Mansa_Sharma@schoolname.com",
-        "rollnum": "1004",
-        "contact": "0123456789",
-        "class": "FIVE"
-    },
-    {
-        "id": 1,
-        "fname": "Suneel",
-        "lname": "Sharma",
-        "email": "Suneel_Sharma@schoolname.com",
-        "rollnum": "1001",
-        "contact": "0123456789",
-        "class": "FIVE"
-    },
-    {
-        "id": 2,
+        "admission_num": 1000,
         "fname": "Anubhav",
         "lname": "Mishra",
-        "email": "Anubhav_Mishra@schoolname.com",
-        "rollnum": "1002",
+        "email": "Anubhav_Mishra@HappySchool.com",
+        "rollnum": "1",
         "contact": "0123456789",
         "class": "FIVE"
+    },
+    {
+        "admission_num": 1001,
+        "fname": "Ram",
+        "lname": "Sharma",
+        "email": "Ram_Sharma@HappySchool.com",
+        "rollnum": "2",
+        "contact": "0123456788",
+        "class": "FIVE"
+    },
+    {
+        "admission_num": 1002,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "John_Doe@HappySchool.com",
+        "rollnum": "3",
+        "contact": "5555555555",
+        "class": "TWO"
+    },
+    {
+        "admission_num": 1002,
+        "fname": "Mary",
+        "lname": "Jane",
+        "email": "Mary_Jane@HappySchool.com",
+        "rollnum": "4",
+        "contact": "2222222222",
+        "class": "TWO"
     }
 ]
