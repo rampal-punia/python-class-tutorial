@@ -1,4 +1,4 @@
-STUDENT_FILENAME = 'school_management/student.json'
+STUDENT_FILENAME = 'student.json'
 TEACHER_FILENAME = 'teacher.json'
 
 

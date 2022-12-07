@@ -1,8 +1,7 @@
 import json
 
-from member import Member
-from choices import Subject
-from helper import TeacherData
+from helper import FileData, Member, Subject
+import settings
 
 
 class Teacher(Member):
@@ -22,11 +21,12 @@ class Teacher(Member):
         self.id = 0
         self.empid = empid
         self.email = f"{self.fname}_{self.lname}@schoolname.com"
+        self.filename, self.data = FileData(settings.TEACHER_FILENAME).load()
         if isinstance(subject, Subject):
             self.subject = subject.name
         else:
             print(f"[INFO] Subject should one of the following...")
-            print(Subject.get_subjects_dict())
+            print(Subject.get_subjects_info())
             print("[DEFAULT] Setting subject HINDI.")
             self.subject = Subject.get_default_sub()
 
@@ -72,8 +72,8 @@ class SaveTeacher:
         self.save()
 
     def save(self):
-        std_data = TeacherData()
-        fl, teacher_data = std_data.load_data()
+        std_data = FileData(settings.TEACHER_FILENAME)
+        fl, teacher_data = std_data.load()
         teacher_data.append(self.student)
         with open(fl, self.mode) as teacher_file:
             json.dump(teacher_data, teacher_file)
