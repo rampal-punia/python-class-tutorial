@@ -2,11 +2,10 @@ class Car:
     MAKE = "TATA Motors"
     year = 2022
 
-    def __init__(self, model, color, speed, month):
+    def __init__(self, model, color, speed):
         self.model = model
         self.color = color
         self.speed = speed
-        self.month = month
 
     def get_speed(self):
         return f"The max-speed of {Car.MAKE} car '{self.model}' is {self.speed} km/h"
@@ -23,7 +22,6 @@ class Car:
         print(f"Color: {self.color}")
         print(f"Max Speed: {self.speed}")
         print(f"Manufacturing Year: {Car.year}")
-        print(f"Manufacturing Month: {self.month}")
 
     @classmethod
     def change_year(cls, new_year):
@@ -31,8 +29,8 @@ class Car:
         return cls.year
 
 
-car1 = Car("Harrier", "grey", 180, 'December')
-car2 = Car("Nexon", "Dark Grey", 160, 'January')
+car1 = Car("Harrier", "grey", 180)
+car2 = Car("Nexon", "Dark Grey", 160)
 car1.description()
 print(car1.get_speed())
 

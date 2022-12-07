@@ -18,7 +18,9 @@ If we look at the features of the Python Programming Language. We find that, Pyt
 
 One of the main features of Python is; it has **Effective approach to object-oriented programming**. So, let's first find out what does `Object-Oriented-Programming` means?
 
-OOP is the programming paradigm where the real-life object is at the center of all the concepts and methodology used to perform a task or a process. Instead of calling the procedures and functions to calculate the data as and when required, OOP uses a blueprint to create an object of a class and bundle data and functionality to it.   
+OOP is the programming paradigm where the real-life object is at the center of all the concepts and methodology used to perform a task or a process. Instead of calling the procedures and functions to calculate the data as and when required, OOP uses a blueprint to create an object of a class and bundle data and functionality to it.
+
+Everything in Python is an object. They have some data and functionality associated with them. So all the Python objects like **list**, **int**, **str**, **tuple**, **functions**, **sys** etc are objects.
 
 ---
 
@@ -62,23 +64,27 @@ OOP is the programming paradigm where the real-life object is at the center of a
 
 ## Definition of class:
 
-A python class is like a **blueprint to create a new object**. The objects having similar set of attributes and behaviors goes to the same class. For example: Cars, TV, Employees, Students, Smart phones. All the new object of a car class shares same similar attributes and methods.
+A python class is like a **blueprint to create a new object**. The objects having similar set of attributes and behaviors goes to the same class. For example: Cars, TV, Employees, Students, Smart phones. All the new objects of a class shares similar attributes and methods.
 
 ---
 
 ## Reason for creating a class:
-> To accumulate the data of similar properties and methods together. By creating a new object we add this new instance, or any future instance, to a particular bundle. That bundle is called a `class`. If we have the same set of objects with similar attributes and functionalities we should create a class. Also, class supports inheritance. With classes we can reuse our codes or the codes written by other programmers. (Packages, modules and frameworks)
+To accumulate the data of similar properties and methods together. 
+
+By creating a new object we add this new instance, or any future instance, to a particular bundle. That bundle is called a `class`. If we have the same set of objects with similar attributes and functionalities we should create a class. Also, class supports inheritance. With classes we can reuse our codes or the codes written by other programmers. (Packages, modules and frameworks)
 
 ---
 
 ## Naming a class
 
-To name a `class` in Python the convention is to start with capital letter like: Animal, Employee, ImageDetector.
+To name a `class` in Python the convention is to start with capital letter like: Animal, Employee. Similarly if the class is made up with two or more words, each word has the first letter capitalize like: ImageDetector, PointRotationCalculator etc.
 
 ---
 
 ## class keyword and __init__ method
-Everything in Python is a class. like **list**, **int**, **str**, **tuple**, **functions**, **sys** etc. To create a user defined object we use **class** keyword in Python. The special method **__init__** is used to initialize an object of that class.
+To create a user defined object we use **class** keyword in Python. The special method **__init__** is used to initialize an object of that class.
+
+Let's look at an example of creating a user defined class in Python.
 
 ### An example of a `Car class`:
 Let's say, we need to create a record of cars manufactured by the Tata Motors. The data and data related to car are as mentioned below. 
@@ -86,12 +92,12 @@ Let's say, we need to create a record of cars manufactured by the Tata Motors. T
 MAKE = "TATA Motors"
 Year = 2022
 
-|Model|Color|Speed|Month| 
-|-----|---|---|---|
-|Nexon|Grey|160|November|
-|Nexon|Black|160| November|
-|Harrier|Black|180| December|
-|Harrier|Dark Grey|180| December|
+|Model|Color|Speed|
+|-----|---|---|
+|Altroz|Blue|160|
+|Nexon|Grey|160|
+|Harrier|Dark Grey|180|
+|Safari|Black|170|
 
 **A table containing details of each Car. The row of this table represents the each instance of a class and columns represents attributes associated with an instance of the Car class**. 
 
@@ -102,11 +108,10 @@ class Car:
     MAKE = "TATA Motors"
     year = 2022
 
-    def __init__(self, model, color, speed, month):
+    def __init__(self, model, color, speed):
         self.model = model
         self.color = color
         self.speed = speed
-        self.month = month
 
     def get_speed(self):
         return f"The max-speed of {Car.MAKE} car '{self.model}' is {self.speed} km/h"
@@ -123,18 +128,23 @@ class Car:
         print(f"Color: {self.color}")
         print(f"Max Speed: {self.speed}")
         print(f"Manufacturing Year: {Car.year}")
-        print(f"Manufacturing Month: {self.month}")
+
+    @classmethod
+    def change_year(cls, new_year):
+        cls.year = new_year
+        return cls.year
 
 
-c1 = Car("Harrier", "grey", 180, 'December')
-c1.description()
-print(c1.get_speed())
+car1 = Car("Harrier", "grey", 180)
+car2 = Car("Nexon", "Dark Grey", 160)
+car1.description()
+print(car1.get_speed())
 ```
 
 ---
 
 ## Instance
-> An object of a class (constructed or instantiated from the class) is called the instance of that class. From our car class example (above):
+An object of a class (constructed or instantiated from the class) is called the instance of that class. From our car class example (above):
 
 If we want to add another record into our Car table above, so we will **create new instance of the car class**, it means we already have 4 instances(rows) in our table, and now let's create the fifth one.
 
@@ -143,7 +153,7 @@ If we want to add another record into our Car table above, so we will **create n
 ## Attributes and methods:
 From the above example of a Car class we can deduce:
 
-- Attributes: model, color, speed, month
+- Attributes: model, color, speed
 - Methods: get_speed(), accelerate(), apply_break(), description().
 
 ---
@@ -155,12 +165,12 @@ The variables associated to a particular instance of a class.Also we can say, th
 
 We can declared them in the special method of a class named **__init__**.
 
-In our example of Car class, every instance of the Car class have their own set of model, color, speed, month associated with it. So, these are the instance variables(attributes)
+In our example of Car class, every instance of the Car class have their own set of model, color, speed associated with it. So, these are the instance variables(attributes)
 
 We use dot notation with class instance  to access them. e.g.
 ```python
 # create a new instance
-car1 = Car("Harrier", "grey", 180, 'December')
+car1 = Car("Harrier", "grey", 180)
 
 # access the name and speed of this instance
 print(car.name)
@@ -198,7 +208,7 @@ In our example of Car class, the get_speed(), apply_brakes() are the methods app
 
 To access the instance methods:
 ```python
-car = Car("Harrier", "grey", 180, 'December')
+car = Car("Harrier", "grey", 180)
 car.description()
 print(car.get_speed())
 ```
@@ -214,8 +224,8 @@ In our example of Car class, if we need to work upon the class variables like ye
         cls.year = new_year
         return cls.year
 
-car1 = Car("Harrier", "grey", 180, 'December')
-car2 = Car("Nexon", "Dark Grey", 160, 'January')
+car1 = Car("Harrier", "grey", 180)
+car2 = Car("Nexon", "Dark Grey", 160)
 
 year = Car.change_year(2023)
 print(year)
@@ -256,8 +266,9 @@ print(isinstance(cat1, Cat))
 True
 ```
 
-### Help(): Python docs
+### Help():
 ```python
+# From the examples/2_2_animal_class.py
 print(help(cat1))
 ```
 ### Output:
